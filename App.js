@@ -7,7 +7,7 @@
  */
 
 import React, {useState} from 'react';
-import {StyleSheet, View,Text, StatusBar, FlatList} from 'react-native';
+import {StyleSheet, View, Text, StatusBar, FlatList} from 'react-native';
 import Header from './components/Header';
 import ListItem from './components/ListItem';
 import uuid from 'uuidv4';
@@ -19,7 +19,12 @@ const App: () => React$Node = () => {
     {id: uuid(), text: 'Juice'},
     {id: uuid(), text: 'bread'},
   ]);
-  const renderItem = ({item}) => <ListItem item={item} />;
+  const renderItem = ({item}) => <ListItem deleteItem={deleteItem}  item={item} />;
+  const deleteItem = (id) => {
+    setItems((prevItems) => {
+      return prevItems.filter((item) => item.id != id);
+    });
+  };
   return (
     <>
       <StatusBar barStyle="dark-content" />
