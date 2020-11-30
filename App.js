@@ -7,14 +7,15 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StyleSheet, View, Text, StatusBar} from 'react-native';
+import {StyleSheet, View, StatusBar} from 'react-native';
+import Header from './components/Header';
 
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
-        <Text style={styles.text}>Hello World!</Text>
+        <Header title="Shopping List" />
       </View>
     </>
   );
@@ -23,12 +24,7 @@ const App: () => React$Node = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    color: 'green',
-    fontSize: 30,
+    paddingTop: 60,
   },
 });
 
